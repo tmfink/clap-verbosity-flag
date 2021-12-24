@@ -18,17 +18,17 @@
 
 use log::Level;
 
-#[derive(structopt::StructOpt, Debug, Clone)]
+#[derive(clap::StructOpt, Debug, Clone)]
 pub struct Verbosity {
     /// Pass many times for more log output
     ///
     /// By default, it'll only report errors. Passing `-v` one time also prints
     /// warnings, `-vv` enables info logging, `-vvv` debug, and `-vvvv` trace.
-    #[structopt(long, short = "v", parse(from_occurrences))]
+    #[structopt(long, short = 'v', parse(from_occurrences))]
     verbose: i8,
 
     /// Pass many times for less log output
-    #[structopt(long, short = "q", parse(from_occurrences), conflicts_with = "verbose")]
+    #[structopt(long, short = 'q', parse(from_occurrences), conflicts_with = "verbose")]
     quiet: i8,
 
     #[structopt(skip)]
